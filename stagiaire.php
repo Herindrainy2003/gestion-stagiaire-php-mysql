@@ -6,6 +6,8 @@
         <div class="card-header py-3">
             <p class="text-primary m-0 fw-bold">Les Stagiaires</p>
         </div>
+        <!-- Bouton Imprimer -->
+<button id="imprimerBtn" class="btn btn-primary mt-3">Imprimer</button>
     </div>
 </div>
 <div class="table-responsive">
@@ -66,8 +68,22 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js">
 
 </script>
-<script src="/assets/js/script.min.js?h=bdf36300aae20ed8ebca7e88738d5267">
+<script src="/assets/js/script.min.js"></script>
+<script>
+    document.getElementById('imprimerBtn').addEventListener('click', function () {
+        // Créer une instance jsPDF
+        var doc = new jsPDF();
 
+        // Ajouter le tableau au PDF
+        doc.autoTable({
+            html: '#tableStagiaires',
+            startY: 20,
+            theme: 'grid'
+        });
+
+        // Télécharger le PDF
+        doc.save('liste_stagiaires.pdf');
+    });
 </script>
 </body>
 </html>
