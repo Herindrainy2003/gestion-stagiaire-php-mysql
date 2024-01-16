@@ -1,3 +1,4 @@
+<?php include "header.php"; ?>
 <?php
 include "dbconnect.php";
 // Récupérer les données des stagiaires depuis la base de données
@@ -20,12 +21,17 @@ stage st ON s.id_stage = st.id_stage;
 $conn->close();
 ?>
 <?php include "header.php" ?>
+<!-- Ajouter ces liens CDN dans la section head de votre page -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.7/jspdf.plugin.autotable.min.js"></script>
 <div class="container-fluid">
     <h3 class="text-dark mb-4"></h3>
     <div class="card shadow">
         <div class="card-header py-3">
             <p class="text-primary m-0 fw-bold">Recaputulation</p>
         </div>
+        
+    <table class="table">
     </div>
 </div>
 <div class="table-responsive">
@@ -94,4 +100,6 @@ $conn->close();
 </div>
 <a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i>
 </a></div>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script><script src="/assets/js/script.min.js?h=bdf36300aae20ed8ebca7e88738d5267"></script></body></html>
+
+
+</body></html>

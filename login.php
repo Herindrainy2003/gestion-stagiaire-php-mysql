@@ -15,7 +15,7 @@ if (isset($_POST["submit"])){
   $connexion=new mysqli($serveur,$user,$password,$dbname);
   //verification de la connection
   if($connexion->connect_error){
-    echo"connexion echoué";
+   echo '<script>alert("connexion refuser");</script>';
   }
   //creer une requete
   $req="SELECT * FROM user WHERE nom='$nom' AND mdp='$mdp'";
@@ -25,12 +25,12 @@ if (isset($_POST["submit"])){
     $_SESSION['nom']=$nom;
     header("Location:index.php");
   }else{
-    echo("verifier bien votre nom ou votre mot de passe");
+    echo '<script>alert("verifier bien votre information");</script>';
   }
   
  
 
-}else echo"veuillez remplir toute le champ";
+}else echo '<script>alert("connexion refuser");</script>';
 }
 
 ?>
@@ -40,8 +40,8 @@ if (isset($_POST["submit"])){
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>Login - Brand</title>
-    <link rel="icon" type="image/png" sizes="180x180" href="./assets/img/menu.png">
-    <link rel="icon" type="image/png" sizes="180x180" href="/assets/img/menu.png">
+    <link rel="icon" type="image/png" sizes="180x180" href="./assets/img/logo.png">
+    <link rel="icon" type="image/png" sizes="180x180" href="./assets/img/logo.png">
     <link rel="stylesheet" href="./assets/bootstrap/css/bootstrap.min.css">
     <link rel="manifest" href="/manifest.json">
     <link rel="stylesheet" href="./assets/css/styles.min.css">
@@ -54,7 +54,7 @@ if (isset($_POST["submit"])){
             <div class="card-body p-0">
               <div class="row">
                 <div class="col-lg-6 d-none d-lg-flex">
-                  <div class="flex-grow-1 bg-login-image" style="background-image: url(./assets/img/dogs/image3.jpeg)">
+                  <div class="flex-grow-1 bg-login-image" style="background-image: url(./assets/img/dogs/logo.png)">
                 </div>
               </div>
               <div class="col-lg-6"><div class="p-5">

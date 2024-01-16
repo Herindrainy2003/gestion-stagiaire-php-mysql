@@ -1,3 +1,4 @@
+<?php include "location.php"; ?>
 <?php
 if(isset($_POST['update'])){
     $id = $_GET['id'];

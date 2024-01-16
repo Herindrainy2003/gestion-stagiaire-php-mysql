@@ -1,3 +1,4 @@
+<?php include "location.php"; ?>
 <?php  include "header.php" ?>
 <div class="container-fluid">
     <h3 class="text-dark mb-4"></h3>
@@ -34,9 +35,9 @@
                 <td><?php echo $row['encadreur'] ?></td>
                 <td>
                    
-                <a href="Modifierstage.php?id_stage=<?php echo $row ['id_stage']?>" class="link-dark"> Edit  </a>
+                <a href="Modifierstage.php?id_stage=<?php echo $row ['id_stage']?>" class="link-dark"><i class="fas fa-pencil-alt"> </i>  </a>
                   
-                <a href="deletestage.php?id_stage=<?php echo $row ['id_stage']?>" class="link-dark">delete</a>
+                <a href="deletestage.php?id_stage=<?php echo $row ['id_stage']?>" class="link-dark"><i class="fas fa-trash"> </i></a>
                 </td>
             </tr>
             <?php

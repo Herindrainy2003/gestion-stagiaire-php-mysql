@@ -1,3 +1,4 @@
+<?php include "location.php"; ?>
 <?php include "header.php" ?>
 <div class="container-fluid">
     <h3 class="text-dark mb-4"></h3>
@@ -37,8 +38,8 @@
                 <td><?php echo $row['niveau'] ?></td>
                 <td><?php echo $row['id_stage'] ?></td>
                 <td>
-                   <a href="modiferstagiaire.php?id=<?php echo $row ['id']?>" class="link-dark">edit</i></a>
-                       <a href="deleteStagiaire.php?id=<?php echo $row ['id']?>" class="link-dark">delete</a>
+                   <a href="modiferstagiaire.php?id=<?php echo $row ['id']?>" class="link-dark"><i class="fas fa-pencil-alt"> </i></a>
+                       <a href="deleteStagiaire.php?id=<?php echo $row ['id']?>" class="link-dark"><i class="fas fa-trash"></i></a>
                    </td>
     <?php
         } ?>

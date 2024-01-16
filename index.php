@@ -1,3 +1,4 @@
+<?php include "location.php"; ?>
   <?php include "header.php" ?>
 <?php  
 include "dbconnect.php";
@@ -5,8 +6,8 @@ include "dbconnect.php";
 $totalStagiairesResult = $conn->query("SELECT COUNT(*) as total_stagiaires FROM stagiaire");
 $totalStagiaires = $totalStagiairesResult->fetch_assoc()['total_stagiaires'];
 
-$totalencadreurResult = $conn->query("SELECT COUNT(*) as total_stagiaires FROM stagiaire");
-$totalencadreur = $totalencadreurResult->fetch_assoc()['total_stagiaires'];
+$totalencadreurResult = $conn->query("SELECT COUNT(*) as total_stage FROM stage");
+$totalencadreur = $totalencadreurResult->fetch_assoc()['total_stage'];
 // Fermer la connexion à la base de données
 $conn->close();
 ?>

@@ -1,3 +1,4 @@
+<?php include "header.php"; ?>
 <?php
 if(isset($_POST['update'])){
     $id_stage = $_GET['id_stage'];

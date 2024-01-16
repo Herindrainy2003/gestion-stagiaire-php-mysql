@@ -1,3 +1,4 @@
+<?php include "location.php"; ?>
 <?php include "header.php" ?>
 <!-- Start: Contact Form Basic --><section class="py-4 py-xl-5" style="font-size: 20px;text-shadow: 0px 0px rgb(121,123,135);">
 <div class="container">
