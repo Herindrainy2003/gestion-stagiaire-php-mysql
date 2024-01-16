@@ -70,20 +70,14 @@
 </script>
 <script src="/assets/js/script.min.js"></script>
 <script>
-    document.getElementById('imprimerBtn').addEventListener('click', function () {
-        // Créer une instance jsPDF
-        var doc = new jsPDF();
-
-        // Ajouter le tableau au PDF
-        doc.autoTable({
-            html: '#tableStagiaires',
-            startY: 20,
-            theme: 'grid'
-        });
-
-        // Télécharger le PDF
-        doc.save('liste_stagiaires.pdf');
-    });
+document.getElementById("imprimerBtn").addEventListener("click", function() {
+    var tableau = document.querySelector(".table-responsive");
+    var pdf = new jsPDF();
+    pdf.addHTML(tableau.outerHTML);
+    pdf.save("tableau.pdf");
+});
 </script>
+
+
 </body>
 </html>

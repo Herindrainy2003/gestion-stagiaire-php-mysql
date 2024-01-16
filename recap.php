@@ -116,8 +116,6 @@ function generateCertificate(btn) {
     const data = [[nom, theme, encadreur]];
     doc.autoTable({
         startY: 20,
-       // head: columns,
-       // body: data,
         styles: {
             font: 'Helvetica',
             fontSize: 12
