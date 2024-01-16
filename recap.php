@@ -1,6 +1,7 @@
-<?php include "header.php"; ?>
+
 <?php
 include "dbconnect.php";
+$conn->set_charset("utf8");
 // Récupérer les données des stagiaires depuis la base de données
 $result = $conn->query("SELECT 
 s.nom, 
@@ -52,6 +53,7 @@ $conn->close();
         <tbody>
         <?php
            include "dbconnect.php";
+           $conn->set_charset("utf8");
             $sql="SELECT 
             s.nom, 
             s.num, 
@@ -82,7 +84,7 @@ $conn->close();
                 
                 
                 <td>
-                <a href="editstage.php" class="link-dark">Certifier</i></a>
+                <button class="btn btn-primary" onclick="generateCertificate(this)">Certifier</button>
                 </td>
             </tr>
             <?php
@@ -100,6 +102,49 @@ $conn->close();
 </div>
 <a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i>
 </a></div>
+<script>
+function generateCertificate(btn) {
+    const studentData = btn.closest('tr').querySelectorAll('td');
+    const nom = studentData[0].textContent;
+    const theme = studentData[5].textContent;
+    const encadreur = studentData[6].textContent;
+    const durer = studentData[7].textContent;
 
+    // Create PDF document
+    const doc = new jsPDF();
+    const columns = ['Nom', 'Thème', 'Encadreur'];
+    const data = [[nom, theme, encadreur]];
+    doc.autoTable({
+        startY: 20,
+       // head: columns,
+       // body: data,
+        styles: {
+            font: 'Helvetica',
+            fontSize: 12
+        },
+        encoding: "UTF-8"
+    });
+    // Contenu du certificat en français
+    doc.setFont("Arial Unicode MS");
+
+doc.text("Attestation de stage", 15, 15);
+doc.setFontSize(15);
+doc.text(`Je soussigne  ,${encadreur} certifie que: ${nom}`, 15, 25);
+
+// Données du stagiaire
+doc.setFontSize(12);
+doc.text(`A effectue un stage de notre service  avec le theme " ${theme} " ` , 15, 35);
+doc.text(`et ce durant de ${durer} : `, 15, 45);
+doc.text("Ce present Attestation est delivree a l'interesse , sur sa demande,pour servir  et valoir ce que droit : " , 15, 55);
+
+
+// Signature (optionnelle)
+doc.text("Signature de l'établissement", 100, 75);
+doc.text(" Fait a Toliara , le " + new Date().toLocaleDateString(), 100, 80);
+
+    // Download the PDF
+    doc.save(`certificat ${nom}.pdf`);
+}
+</script>
 
 </body></html>
